@@ -1,5 +1,6 @@
 ﻿using mis_221_pa_5_sncraven;
 
+DisplayMenu();
 static void DisplayMenu(){
     System.Console.WriteLine("choose one of the following ");
     System.Console.WriteLine("1. Manage Trainer Data ");
@@ -10,4 +11,4 @@ static void DisplayMenu(){
 }
 
 
-// cool extra: trainer sets the rate for each of thier sessions
+// extra: trainer sets the rate for each of thier sessions
