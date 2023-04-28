@@ -1,0 +1,15 @@
+/Users/stacie/Documents/mis221/mis-221-pa-5-sncraven/obj/Debug/net7.0/mis-221-pa-5-sncraven.csproj.AssemblyReference.cache
+/Users/stacie/Documents/mis221/mis-221-pa-5-sncraven/obj/Debug/net7.0/mis-221-pa-5-sncraven.GeneratedMSBuildEditorConfig.editorconfig
+/Users/stacie/Documents/mis221/mis-221-pa-5-sncraven/obj/Debug/net7.0/mis-221-pa-5-sncraven.AssemblyInfoInputs.cache
+/Users/stacie/Documents/mis221/mis-221-pa-5-sncraven/obj/Debug/net7.0/mis-221-pa-5-sncraven.AssemblyInfo.cs
+/Users/stacie/Documents/mis221/mis-221-pa-5-sncraven/obj/Debug/net7.0/mis-221-pa-5-sncraven.csproj.CoreCompileInputs.cache
+/Users/stacie/Documents/mis221/mis-221-pa-5-sncraven/bin/Debug/net7.0/mis-221-pa-5-sncraven
+/Users/stacie/Documents/mis221/mis-221-pa-5-sncraven/bin/Debug/net7.0/mis-221-pa-5-sncraven.deps.json
+/Users/stacie/Documents/mis221/mis-221-pa-5-sncraven/bin/Debug/net7.0/mis-221-pa-5-sncraven.runtimeconfig.json
+/Users/stacie/Documents/mis221/mis-221-pa-5-sncraven/bin/Debug/net7.0/mis-221-pa-5-sncraven.dll
+/Users/stacie/Documents/mis221/mis-221-pa-5-sncraven/bin/Debug/net7.0/mis-221-pa-5-sncraven.pdb
+/Users/stacie/Documents/mis221/mis-221-pa-5-sncraven/obj/Debug/net7.0/mis-221-pa-5-sncraven.dll
+/Users/stacie/Documents/mis221/mis-221-pa-5-sncraven/obj/Debug/net7.0/refint/mis-221-pa-5-sncraven.dll
+/Users/stacie/Documents/mis221/mis-221-pa-5-sncraven/obj/Debug/net7.0/mis-221-pa-5-sncraven.pdb
+/Users/stacie/Documents/mis221/mis-221-pa-5-sncraven/obj/Debug/net7.0/mis-221-pa-5-sncraven.genruntimeconfig.cache
+/Users/stacie/Documents/mis221/mis-221-pa-5-sncraven/obj/Debug/net7.0/ref/mis-221-pa-5-sncraven.dll

@@ -7,16 +7,21 @@ namespace mis_221_pa_5_sncraven
         private string trainerName;
         private string mailingAddress;
         private string trainerEmailAddress;
-        // no arg constructor 
-        // public Trainer() {
 
-        // }
+        private bool isDeleted;
+        // class variable 
+        static private int count; // 1 count for the entire variable
+        // no arg constructor 
+        public Trainer() {
+
+        }
         // arg constructor 
         public Trainer(int trainerID, string trainerName, string mailingAddress, string trainerEmailAddress)  {
             this.trainerID = trainerID;
             this.trainerName = trainerName;
             this.mailingAddress = mailingAddress;
             this.trainerEmailAddress = trainerEmailAddress;
+            this.isDeleted = false;
         }
         // accessor methods 
         public int GetTrainerID() {
@@ -43,9 +48,23 @@ namespace mis_221_pa_5_sncraven
         public void SetTrainerEmailAddress(string trainerEmailAddress) {
             this.trainerEmailAddress = trainerEmailAddress;
         }
+        public void IsDeleted()
+        {
+            isDeleted = !isDeleted;
+        }
+        static public int GetCount() {
+            return count;
+        }
+        static public void SetCount(int count) {
+            Trainer.count = count;
+        }
+        static public void IncCount() {
+            Trainer.count++;
+        }
         // ToString method 
         public override string ToString() {
-            return $"The trainer is {trainerName}, thier ID number is {trainerID},their email is {trainerEmailAddress}, their mailing address is {mailingAddress}.";
+            
+            return $"#{trainerName}#{trainerID}#{trainerEmailAddress}#{mailingAddress}";
         }
         
     }

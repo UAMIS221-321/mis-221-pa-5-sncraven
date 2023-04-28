@@ -1,32 +1,50 @@
+using System.ComponentModel.Design.Serialization;
 namespace mis_221_pa_5_sncraven
 {
     public class Transaction
     {
         // instance variables
         private int sessionID;
+        private string session;
         private string customerName;
         private string customerEmail;
-        private DateTime trainingDate;
+        private DateOnly trainingDate;
         private int trainerID;
         private string trainerName;
-        private string status;
+        
+        static private int count; 
+        // no arg constructor
+        public Transaction()
+        {
+
+        }
 
         // arg constructor
-        public Transaction(int sessionID, string customerName, string customerEmail, DateTime trainingDate, int trainerID, string trainerName, string status) {
+        public Transaction(int sessionID, string session, string customerName, string customerEmail, DateOnly trainingDate, int trainerID, string trainerName) {
             this.sessionID = sessionID;
+            this.session = session;
             this.customerName = customerName;
             this.customerEmail = customerEmail;
             this.trainingDate = trainingDate;
             this.trainerID = trainerID;
             this.trainerName = trainerName;
-            this.status = status;
+            
         }
         // accessor methods 
-        public int GetSessionID() {
+        
+        public int GetSessionID() { 
             return sessionID;
         }
         public void SetSessionID(int sessionID) {
             this.sessionID = sessionID;
+        }
+        public string GetSession()
+        {
+            return session;
+        }
+        public void SetSession(string session)
+        {
+            this.session = session;
         }
         public string GetCustomerName() {
             return customerName;
@@ -40,10 +58,10 @@ namespace mis_221_pa_5_sncraven
         public void SetCustomerEmail(string customerEmail) {
             this.customerEmail = customerEmail;
         }
-        public DateTime GetTrainingDate() {
+        public DateOnly GetTrainingDate() {
             return trainingDate;
         }
-        public void SetTrainingDate (DateTime trainingDate) {
+        public void SetTrainingDate (DateOnly trainingDate) {
             this.trainingDate = trainingDate;
         }
         public int GetTrainerID() {
@@ -58,15 +76,25 @@ namespace mis_221_pa_5_sncraven
         public void SetTrainerName(string trainerName){
             this.trainerName = trainerName;
         }
-        public string GetStatus() {
-            return status;
+        
+        static public int GetCount() {
+            return count;
         }
-        public void SetStatus(string status) {
-            this.status = status;
+        static public void SetCount(int count) {
+            Transaction.count = count;
         }
+        static public void IncCount() {
+            Transaction.count++;
+        }
+        // public string ToReportString()
+        // {
+        //     return 
+        // }
+
         public override string ToString()
         {
-            return $"The session is {sessionID}, the customer's name and email is {customerName}, {customerEmail}, the training date is {trainingDate}, and the trainer name and status is {trainerName} & {status}. ";
+                return $"{sessionID}#{session}#{customerName}#{trainingDate}#{trainerID}#{trainerName} has been completed";
+
         }
     }
 
