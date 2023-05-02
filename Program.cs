@@ -185,7 +185,7 @@ static void DisplayMenu(){
     System.Console.WriteLine("2. Manage Listing Data");
     System.Console.WriteLine("3. Manage Customer Booking Data");
     System.Console.WriteLine("4. Run Reports");
-    System.Console.WriteLine("4. Exit the program");
+    System.Console.WriteLine("5. Exit the program");
 }
 
 
