@@ -5,13 +5,15 @@ namespace mis_221_pa_5_sncraven
         // instance variables 
         private int listingID;
         private string trainerName;
+        private string sessionType;
         private DateOnly dateOfSession;
         private TimeSpan timeOfSession;
-        private int costOfSession;
+        private decimal costOfSession;
         private bool status;
-        private bool isDeleted;
-        private bool listingsAreTaken;
+        private bool deleted;
+    
         static private int count;
+        static private int max;
 
         // no arg constructor
         public Listing()
@@ -20,15 +22,15 @@ namespace mis_221_pa_5_sncraven
         }
 
         // arg constructor
-        public Listing(int listingID, string trainerName, DateOnly dateOfSession, TimeSpan timeOfSession, int costOfSession, bool listingsAreTaken, bool status, bool isDeleted) {
+        public Listing(int listingID, string trainerName, string sessionType, DateOnly dateOfSession, TimeSpan timeOfSession, decimal costOfSession) {
             this.listingID = listingID;
             this.trainerName = trainerName; 
+            this.sessionType = sessionType;
             this.dateOfSession = dateOfSession;
             this.timeOfSession = timeOfSession;
             this.costOfSession = costOfSession;
-            this.listingsAreTaken = true;
             this.status = true;
-            this.isDeleted = false;
+            this.deleted = false;
         }
         // accessor methods 
         public int GetListingID() {
@@ -43,6 +45,14 @@ namespace mis_221_pa_5_sncraven
         public void SetTrainerName(string trainerName) {
             this.trainerName = trainerName;
         }
+        public string GetSessionType()
+        {
+            return sessionType;
+        }
+        public void SetSessionType(string sessionType)
+        {
+            this.sessionType = sessionType;
+        }
         public DateOnly GetDateOfSession() {
             return dateOfSession;
         }
@@ -55,18 +65,26 @@ namespace mis_221_pa_5_sncraven
         public void SetTimeOfSession(TimeSpan timeOfSession) {
             this.timeOfSession = timeOfSession;
         }
-        public int GetCostOfSession() {
+        public decimal GetCostOfSession() {
             return costOfSession;
         }
-        public void SetCostOfSession(int costOfSession){
+        public void SetCostOfSession(decimal costOfSession){
             this.costOfSession = costOfSession;
         }
-        public void Status() {
-            status = !status;
-        }
-        public void IsDeleted()
+        public bool GetStatus()
         {
-            isDeleted = !isDeleted;
+            return status; 
+        }
+        public void SetStatus(bool status) {
+            this.status = true;
+        }
+        public bool GetDeleted()
+        {
+            return deleted; 
+        }
+        public void SetDeleted(bool deleted)
+        {
+            this.deleted = false;
         }
         static public int GetCount() {
             return count;
@@ -77,14 +95,29 @@ namespace mis_221_pa_5_sncraven
         static public void IncCount() {
             Listing.count++;
         }
-        // mutator methods
-        public void ListingsAreTaken() {
-            listingsAreTaken = !listingsAreTaken;
+        static public int GetMax() 
+        {
+            return max;
         }
+        static public void Setmax(int max)
+        {
+            Listing.max = max;
+        }
+        static public void IncMax()
+        {
+            Listing.max++;
+        }
+        // mutator methods
+       
+        
         // Tostring method 
         public override string ToString(){
-
-               return $"{listingID}#{trainerName}#{dateOfSession}#{timeOfSession}#{costOfSession}";    
+            return $"The Listing ID is {listingID}, the trainer's name is {trainerName}, the session type is {sessionType}, the date of the session is {dateOfSession}, the time of the session is {timeOfSession}, and the cost of the session is {costOfSession}";
+               
+        }
+        public string ToFile()
+        {
+            return $"{listingID}#{trainerName}#{sessionType}#{dateOfSession}#{timeOfSession}#{costOfSession}"; 
         }
     }
 

@@ -1,13 +1,19 @@
 namespace mis_221_pa_5_sncraven
 {
-    public class ListingReport
+    public class ListingReport 
     {
         Listing[] listings;
-        public ListingReport(Listing[] listings)
+        transactionUtility TrUtility;
+
+        listingUtility Lutility;
+        public ListingReport(Listing[] listings, transactionUtility TrUtility, listingUtility Lutility)
         {
             this.listings = listings;
+            this.TrUtility = TrUtility;
+            this.Lutility = Lutility;
+            this.listings = Lutility.GetAllListingsFromFile();
         }
-        public void PrintAllListings()
+        public void PrintAllListings(Listing[] listings)
         {
             for(int i = 0; i < Listing.GetCount(); i++)
             {
@@ -16,32 +22,38 @@ namespace mis_221_pa_5_sncraven
                 
         }
 
-        public void GetListingRevenue()
+        public void HistoricalRevenueReport(Transaction [] transactions, Listing[] listings)
         {
-            DateOnly curr = listings[0].GetDateOfSession();
-            int count = listings[0].GetListingID();
+            TrUtility.SortByDate(transactions);
+            DateOnly curr = transactions[0].GetTrainingDate(); 
+            int currMonth = curr.Month;
+            decimal count = listings[0].GetCostOfSession();
+            
             for(int i =0; i < Listing.GetCount(); i++)
             {
-                if(listings[i].GetDateOfSession() == curr)
+                if(transactions[i].GetTrainingDate().Month == currMonth)
                 {
-                    count += listings[i].GetListingID();
-                }else 
+                    count+= listings[i].GetCostOfSession();
+                }
+                else
                 {
-                    ProcessBreak(ref curr, ref count, listings[i]);
+                    ProcessBreak(ref currMonth, ref count, listings[i], transactions[i]);
                 }
             }
-            ProcessBreak(ref curr, ref count);
+
+            ProcessBreak(ref currMonth, ref count);
         }
 
-        public void ProcessBreak(ref DateOnly curr, ref int count, Listing newListing)
+
+        public void ProcessBreak(ref  int currMonth, ref decimal count, Listing newListing, Transaction newTransaction)
         {
-            System.Console.WriteLine($"{curr} \t {count}");
-            curr = newListing.GetDateOfSession();
-            count = newListing.GetListingID();
+            System.Console.WriteLine($"{currMonth} \t {count}");
+            currMonth = newTransaction.GetTrainingDate().Month;
+            count = newListing.GetCostOfSession();
         }
-        public void ProcessBreak(ref DateOnly curr, ref int count)
+        public void ProcessBreak(ref int currMonth, ref decimal count)
         {
-            System.Console.WriteLine($"{curr} \t {count}");
+            System.Console.WriteLine($"{currMonth} \t {count}");
         }
     }
 }

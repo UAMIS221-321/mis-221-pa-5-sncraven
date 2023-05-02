@@ -86,15 +86,16 @@ namespace mis_221_pa_5_sncraven
         static public void IncCount() {
             Transaction.count++;
         }
-        // public string ToReportString()
-        // {
-        //     return 
-        // }
+        
 
         public override string ToString()
         {
-                return $"{sessionID}#{session}#{customerName}#{trainingDate}#{trainerID}#{trainerName} has been completed";
+                return $"The session ID is {sessionID}, {session} is the type of session, the customer's name is {customerName}, the training date is {trainingDate}, the trainer's ID is {trainerID}, the trainer's name is {trainerName}";
 
+        }
+        public string ToFile()
+        {
+            return $"{sessionID}#{session}#{customerName}#{trainingDate}#{trainerID}#{trainerName}";
         }
     }
 
