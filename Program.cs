@@ -1,11 +1,6 @@
 ﻿using mis_221_pa_5_sncraven;
 
-// Trainer myTrainers = new Trainer();
-// System.Console.WriteLine(myTrainers.ToString());
-// Listing myListings = new Listing();
-// System.Console.WriteLine(myListings.ToString());
-// Transaction myTransaction = new Transaction();
-// System.Console.WriteLine(myTransaction.ToString());
+
 
 Trainer[] trainers = new Trainer[50];
 trainerUtility Tutility = new trainerUtility(trainers);
@@ -86,20 +81,28 @@ void Route(string userInput){
     }
 }
 void RouteTrainer()
+
 {
-    System.Console.WriteLine("Please enter 1 to add a trainer\nPlease enter 2 to edit a trainer\nPlease enter 3 to delete a trainer");
-    string userChoiceTrainer = (Console.ReadLine());
+
+    System.Console.WriteLine("Please enter 1 to add a trainer\nPlease enter 2 to edit a trainer\nPlease enter 3 to delete a trainer\n Please enter 4 to exit ");
+    string userChoiceTrainer = Console.ReadLine();
     while(userChoiceTrainer != "4") 
     {
         if(userChoiceTrainer == "1")
         {
             Tutility.GetAllTrainersFromFile();
             Tutility.AddTrainer();
+            
+            System.Console.WriteLine("Please enter 1 to add a trainer\nPlease enter 2 to edit a trainer\nPlease enter 3 to delete a trainer");
+            userChoiceTrainer = Console.ReadLine();
+            
         }
         else if(userChoiceTrainer == "2")
         {
             Tutility.GetAllTrainersFromFile();
             Tutility.UpdateTrainer();
+            System.Console.WriteLine("Please enter 1 to add a trainer\nPlease enter 2 to edit a trainer\nPlease enter 3 to delete a trainer");
+            userChoiceTrainer = Console.ReadLine();
         }
         else if(userChoiceTrainer == "3")
         {
@@ -107,8 +110,14 @@ void RouteTrainer()
             Tutility.DeleteTrainer();
             System.Console.WriteLine("Please enter the ID number of the trainer you would like to delete");
             Tutility.DeleteTrainer();
+            System.Console.WriteLine("Please enter 1 to add a trainer\nPlease enter 2 to edit a trainer\nPlease enter 3 to delete a trainer");
+            userChoiceTrainer = Console.ReadLine();
         }
-        else if(userChoiceTrainer != "1" && userChoiceTrainer != "2" && userChoiceTrainer !="3")
+        else if(userChoiceTrainer == "4")
+        {
+
+        }
+        else if(userChoiceTrainer != "1" && userChoiceTrainer != "2" && userChoiceTrainer !="3" && userChoiceTrainer != "4")
         {
             System.Console.WriteLine("invalid");
         }
@@ -116,7 +125,7 @@ void RouteTrainer()
 }
 void RouteListing()
 {
-    System.Console.WriteLine("Please enter 1 to add a trainer\nPlease enter 2 to edit a trainer\nPlease enter 3 to delete a listing");
+    System.Console.WriteLine("Please enter 1 to add a trainer\nPlease enter 2 to edit a trainer\nPlease enter 3 to delete a listing\n please enter 4 to exit");
     string userChoiceListing = (Console.ReadLine());
     while(userChoiceListing != "4") 
     {
@@ -124,11 +133,15 @@ void RouteListing()
         {
             Lutility.GetAllListingsFromFile();
             Lutility.AddListing();
+            System.Console.WriteLine("Please enter 1 to add a trainer\nPlease enter 2 to edit a trainer\nPlease enter 3 to delete a listing");
+            userChoiceListing = Console.ReadLine();
         }
         else if(userChoiceListing == "2")
         {
             Lutility.GetAllListingsFromFile();
             Lutility.UpdateListing();
+            System.Console.WriteLine("Please enter 1 to add a trainer\nPlease enter 2 to edit a trainer\nPlease enter 3 to delete a listing");
+            userChoiceListing = Console.ReadLine();
         }
         else if(userChoiceListing == "3")
         {
@@ -137,8 +150,15 @@ void RouteListing()
             System.Console.WriteLine("Please enter the ID number of the trainer you would like to delete");
             Lutility.DeleteListing();
             
+            System.Console.WriteLine("Please enter 1 to add a trainer\nPlease enter 2 to edit a trainer\nPlease enter 3 to delete a listing");
+            userChoiceListing = Console.ReadLine();
         }
-        else if(userChoiceListing != "1" && userChoiceListing != "2" && userChoiceListing !="3")
+        else if(userChoiceListing == "4")
+        {
+
+        }
+
+        else if(userChoiceListing != "1" && userChoiceListing != "2" && userChoiceListing !="3" && userChoiceListing != "4")
         {
             System.Console.WriteLine("invalid");
         }
@@ -155,24 +175,34 @@ void RouteBooking()
 }
 void RouteReports()
 {
-    System.Console.WriteLine("Please enter 1 to get the Historical Revenue Report\nPlease enter 2 to get the Individual Customer Report\nPlease enter 3 to get the historical customer report");
+    System.Console.WriteLine("Please enter 1 to get the Historical Revenue Report\nPlease enter 2 to get the Individual Customer Report\nPlease enter 3 to get the historical customer report\nPlease enter 4 to exit ");
     string userChoiceReport = (Console.ReadLine());
-    while(userChoiceReport != "3")
+    while(userChoiceReport != "4")
     {
         if(userChoiceReport == "1")
         {
             Lreport.HistoricalRevenueReport(transactions, listings);
+            System.Console.WriteLine("Please enter 1 to get the Historical Revenue Report\nPlease enter 2 to get the Individual Customer Report\nPlease enter 3 to get the historical customer report");
+            userChoiceReport = Console.ReadLine();
         }
         else if(userChoiceReport == "2")
         {
             TrReport.IndividualCustomerSessionsReport(transactions);
+             System.Console.WriteLine("Please enter 1 to get the Historical Revenue Report\nPlease enter 2 to get the Individual Customer Report\nPlease enter 3 to get the historical customer report");
+            userChoiceReport = Console.ReadLine();
             
         }
         else if(userChoiceReport == "3")
         {
             TrReport.HistoricalCustomerSessionsReport(transactions);
+             System.Console.WriteLine("Please enter 1 to get the Historical Revenue Report\nPlease enter 2 to get the Individual Customer Report\nPlease enter 3 to get the historical customer report");
+            userChoiceReport = Console.ReadLine();
         }
-        else if(userChoiceReport != "1" && userChoiceReport != "2" && userChoiceReport !="3")
+        else if(userChoiceReport == "4")
+        {
+
+        }
+        else if(userChoiceReport != "1" && userChoiceReport != "2" && userChoiceReport !="3" && userChoiceReport != "4")
         {
             System.Console.WriteLine("invalid");
         }
@@ -180,13 +210,29 @@ void RouteReports()
 }
 
 static void DisplayMenu(){
+
+
+    System.Console.WriteLine("Welcome to Train Like A Champion -- Personal Fitness");
+    System.Console.WriteLine("...");
+    System.Threading.Thread.Sleep(2000);
     System.Console.WriteLine("choose one of the following");
+    System.Console.WriteLine("...");
+    System.Threading.Thread.Sleep(1000);
     System.Console.WriteLine("1. Manage Trainer Data");
+    System.Console.WriteLine("...");
+    System.Threading.Thread.Sleep(1000);
     System.Console.WriteLine("2. Manage Listing Data");
+    System.Console.WriteLine("...");
+    System.Threading.Thread.Sleep(1000);
     System.Console.WriteLine("3. Manage Customer Booking Data");
+    System.Console.WriteLine("...");
+    System.Threading.Thread.Sleep(1000);
     System.Console.WriteLine("4. Run Reports");
+    System.Console.WriteLine("...");
+    System.Threading.Thread.Sleep(1000);
     System.Console.WriteLine("5. Exit the program");
 }
+
 
 
 

@@ -29,11 +29,8 @@ namespace mis_221_pa_5_sncraven
                 if(transactions[i].GetSession() == customerEmail)
                 {
                     System.Console.WriteLine();
-                }
-                
-            }
-
-            
+                }   
+            }    
         }
        
             
